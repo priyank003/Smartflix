@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --font-base: "Poppins", sans-serif;
+  --font-alt: "Open Sans", sans-serif;
+
+  --color-black: #0a070b;
+  --color-red: #f41b3b;
+}
+a {
+  text-decoration: none !important;
+}
+.overlay {
+  background: linear-gradient(
+    172.23deg,
+    #000000 4.94%,
+    rgba(0, 0, 0, 0.35) 45.74%,
+    rgba(0, 0, 0, 0.9) 92.94%
+  );
+  mix-blend-mode: multiply;
+}
+
+.flex__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__padding {
+}
+
+/* typo */
+
+h1 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header__one {
+  font-weight: 700;
+  font-size: 3.8rem;
+}
+.header__two {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+}
+.header__three {
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 48px;
+}
+.header__four {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+}
+.text__subtitle {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 32px;
+}
+.text__subtitle-two {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+}
+@media screen and (max-width: 992px) {
+  .header__one {
+    font-size: 3rem;
+  }
+  .text__subtitle {
+    font-size: 1.3rem;
+    line-height: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__one {
+    font-size: 2.5rem;
+  }
+  .text__subtitle {
+    font-size: 1.4rem;
+    line-height: 25px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header__one {
+    font-size: 1.7rem;
+  }
+  .text__subtitle {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+.link__container {
+  cursor: pointer;
+  white-space: nowrap;
+  margin-right: 20px;
+  color: white;
+  display: flex;
+
+  align-items: center;
+}
+.link__name {
+  margin-left: 10px;
+}
+@media screen and (max-width: 1200px) {
+  .link__container {
+    margin-top: 10px;
+  }
+}
