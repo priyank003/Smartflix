@@ -15,13 +15,13 @@ A web streaming app with smart movie recommendation system.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  1.`git clone` <br/>
+  1. `git clone https://github.com/priyank003/Smartflix.git` <br/>
   <br/>
-  2.cd ./client <br/>
+  2. cd ./client <br/>
   <br/>
-  3.npm install <br/>
+  3. npm install <br/>
   <br/>
-  4.npm start <br/>
+  4. npm start <br/>
   <br/>
-  5 The App is now running at `http://localhost:3000/`
+  5. The App is now running at `http://localhost:3000/`
 
