@@ -15,7 +15,7 @@ A web streaming app with smart movie recommendation system.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  1. `git clone https://github.com/priyank003/Smartflix.git` <br/>
+  1.`git clone https://github.com/priyank003/Smartflix.git`<br/>
   <br/>
   2. cd ./client <br/>
   <br/>
