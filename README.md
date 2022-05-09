@@ -16,8 +16,12 @@ A web streaming app with smart movie recommendation system.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   1.`git clone` <br/>
+  <br/>
   2.cd ./client <br/>
+  <br/>
   3.npm install <br/>
+  <br/>
   4.npm start <br/>
-  5 The App is now running at http://localhost:3000/
+  <br/>
+  5 The App is now running at `http://localhost:3000/`
 
