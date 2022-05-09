@@ -8,9 +8,16 @@ A web streaming app with smart movie recommendation system.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   1.Landing page
   
-  ![image](https://user-images.githubusercontent.com/79754424/167499546-b6f377e2-c83f-4287-a56c-3d164824b0c0.png)
+  ![image](https://user-images.githubusercontent.com/79754424/167499938-f9174afd-19b8-42b7-b68b-1780b872ea2b.png)
 
 
-  
-  
+##Instructions
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  1.`git clone`
+  2.cd ./client
+  3.npm install
+  4.npm start
+  5 The App is now running at http://localhost:3000/
 
