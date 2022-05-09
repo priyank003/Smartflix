@@ -11,7 +11,7 @@ A web streaming app with smart movie recommendation system.
   ![image](https://user-images.githubusercontent.com/79754424/167499938-f9174afd-19b8-42b7-b68b-1780b872ea2b.png)
 
 
-##Instructions
+## Instructions
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
