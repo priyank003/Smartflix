@@ -1,0 +1,28 @@
+.home__main {
+  position: relative;
+}
+.home__main-overlay {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  z-index: 10;
+  top: -200px;
+  background: linear-gradient(
+    180deg,
+    rgb(10, 7, 11, 0) 0%,
+    rgb(10, 7, 11) 83.95%,
+    var(--color-black) 100%
+  );
+}
+.home__catalogues {
+  top: -50px;
+  z-index: 20;
+  position: absolute;
+  width: 100%;
+  padding: 0 50px;
+}
+@media screen and (max-width: 768px) {
+  .home__catalogues {
+    padding: 0 20px;
+  }
+}

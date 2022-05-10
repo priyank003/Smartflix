@@ -1,34 +1,33 @@
-.home__landing {
+.landing {
   position: relative;
-  height: 100vh;
-  background-image: url("../../../assets/Home/IN-en-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  min-height: 100vh;
+  background-image: url("../../../../assets/Home/IN-en-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg");
 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.home__landing-overlay {
+.landing-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   height: 100vh;
-  width: 100vw;
 }
 
-.home__landing-container {
+.landing-container {
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.home__landing-hero {
+.landing-hero {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.home__landing-hero p,
+.landing-hero p,
 h1 {
   text-align: start;
 }
@@ -42,7 +41,7 @@ h1 {
   font-weight: 400;
   width: 80%;
 }
-.home__landing-nav {
+.landing-nav {
   border-radius: 4px;
   width: 70%;
   display: flex;
@@ -52,30 +51,30 @@ h1 {
 
   color: black;
 }
-.home__landing-nav span {
+.landing-nav span {
   border: 1px solid var(--color-red);
   height: 40px;
 }
-.home__landing-nav-left {
+.landing-nav-left {
   background-color: white;
   flex-grow: 1;
   display: flex;
   align-items: center;
   height: 100%;
 }
-.home__landing-nav-phcode {
+.landing-nav-phcode {
   padding: 0 15px;
   font-weight: 500;
   border-right: 1.5px solid var(--color-red);
   height: 40px;
 }
-.home__landing-nav-phno {
+.landing-nav-phno {
   flex-grow: 1 !important;
   border: none;
   padding: 0 15px;
   height: 100%;
 }
-.home__landing-nav-phno:focus {
+.landing-nav-phno:focus {
   outline: none;
 }
 .nav__submit-link {
@@ -93,24 +92,24 @@ h1 {
   color: var(--color-red);
 }
 @media screen and (max-width: 768px) {
-  .home__landing-hero {
+  .landing-hero {
     width: 100%;
   }
-  .home__landing-nav {
+  .landing-nav {
     height: 60px;
     width: 100%;
   }
 }
 
 @media screen and (max-width: 556px) {
-  .home__landing-nav {
+  .landing-nav {
     height: fit-content;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     font-size: 1rem;
   }
-  .home__landing-nav-left {
+  .landing-nav-left {
     padding: 10px 15px;
     border-radius: 2px;
     width: 100%;

@@ -1,0 +1,52 @@
+.rowitemslider__container {
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rowitemslider__carousel-container {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.rowitemslider__carousel-container::-webkit-scrollbar {
+  display: none;
+}
+.rowitemslider__carousel {
+  white-space: nowrap;
+  display: flex;
+  width: fit-content;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  transform: translateX(0px);
+  transition: all 1s ease;
+}
+
+.sliderArrow {
+  z-index: 10;
+  width: 40px !important;
+  height: 100% !important;
+  background-color: rgb(22, 22, 22, 0.5);
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+@media screen and (max-width: 768px) {
+  .sliderArrow {
+    display: none !important;
+  }
+}
