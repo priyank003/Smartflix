@@ -2,7 +2,7 @@ name: Smartflix github action
 on: [push]
 jobs:
   build app:
-  runs-on: ubuntu-latest
-  steps:
-    - name: test yml
-      run: echo "Hello world"
+    runs-on: ubuntu-latest
+    steps:
+      - name: test yml
+        run: echo "Hello world"
