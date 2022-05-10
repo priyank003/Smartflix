@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import brandLogo from "../../assets/navbar/logo.png";
 import { Container, Dropdown } from "react-bootstrap";
 import NavbarLink from "./components/NavbarLink";
@@ -42,8 +42,19 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => (window.onscroll = null);
+  };
+
+  console.log(isScrolled);
   return (
-    <div className="app__navbar-container flex__center">
+    <div
+      className="app__navbar-container flex__center"
+      style={{ background: isScrolled ? "rgb(10, 7, 11)" : "transparent" }}
+    >
       <nav className="app__navbar">
         <div className="app__navbar-left row-xl ">
           <div className="app__navbar-brand ">

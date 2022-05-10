@@ -1,11 +1,14 @@
 .app__navbar-container {
   width: 100%;
+  position: fixed;
+
+  padding: 20px 10px;
+  z-index: 100;
+  transition: all 600 ease;
 }
 .app__navbar {
   width: 90%;
-  position: fixed;
-  top: 20px;
-  z-index: 100;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,6 +43,11 @@
 .nav__dropdown {
   display: none;
 }
+
+.navbar__scrolled {
+  background-color: var(--color-black) !important;
+}
+
 @media screen and (max-width: 1200px) {
   .app__navbar {
     align-items: flex-start;
