@@ -10,7 +10,7 @@ jobs:
           node-version: "16.15.0"
       - name: frontend setup node modules
         run: cd client && npm i
-      - name: start react server
-        run: cd client && npm start
+      - name: build frontend
+        run: cd client && npm run build
       - name: test yml
         run: echo "Test success"
