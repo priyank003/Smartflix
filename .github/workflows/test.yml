@@ -11,6 +11,6 @@ jobs:
       - name: frontend setup node modules
         run: cd client && npm i
       - name: start react server
-        run: npm start
+        run: cd client && npm start
       - name: test yml
         run: echo "Test success"
