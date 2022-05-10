@@ -9,7 +9,11 @@ export default function Landing() {
       <div className="home__landing-overlay overlay"></div>
       <Container className="home__landing-container">
         <div className="home__landing-hero">
-          <p className="text__subtitle landing__hero-top">Welcome to Netflix</p>
+          <p className="text__subtitle landing__hero-top">
+            {" "}
+            Welcome to <span> Smart</span> flix
+          </p>
+
           <h1 className="header__one">Download Unlimited</h1>
           <h1 className="header__one">Movies, Drama, Music</h1>
           <h1 className="header__one">Video and More Content.</h1>

@@ -87,6 +87,11 @@ h1 {
   padding: 0 30px;
   border-radius: 0 4px 4px 0;
 }
+
+.landing__hero-top span {
+  font-weight: 500;
+  color: var(--color-red);
+}
 @media screen and (max-width: 768px) {
   .home__landing-hero {
     width: 100%;
