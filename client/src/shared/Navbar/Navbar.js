@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import brandLogo from "../../assets/navbar/logo.png";
 import { Container, Dropdown } from "react-bootstrap";
 import NavbarLink from "./components/NavbarLink";
+import { Routes, Route, Link } from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
 import TheatersIcon from "@mui/icons-material/Theaters";
@@ -49,7 +50,6 @@ export default function Navbar() {
     return () => (window.onscroll = null);
   };
 
-  console.log(isScrolled);
   return (
     <div
       className="app__navbar-container flex__center"
@@ -87,7 +87,10 @@ export default function Navbar() {
           <div className="app__navbar-search">
             <SearchIcon />
           </div>
-          <div className="app__navbar-auth">Login</div>
+          <Link to="/signin">
+            {" "}
+            <div className="app__navbar-auth">Login</div>
+          </Link>
         </div>
       </nav>
     </div>

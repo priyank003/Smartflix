@@ -1,0 +1,71 @@
+.signin__container {
+  background-image: url("../../assets/Home/IN-en-20220502-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  position: relative;
+  min-height: 100vh;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signin__form-wrapper {
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 4rem 0;
+}
+.signin__form {
+  color: #b3b3b3;
+
+  width: 80%;
+}
+.signin__form-header {
+}
+
+.signin__form input {
+  background-color: #333;
+  border: none;
+}
+.signin__form input:focus {
+  background-color: #333;
+  box-shadow: none;
+  color: white;
+}
+
+.signin__form-btn {
+  font-weight: 500 !important;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--color-red) !important;
+  border: none !important;
+}
+.signin__form-btn:focus {
+  box-shadow: none !important;
+}
+.signin__remember-me {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.signin__form a {
+  color: #b3b3b3;
+}
+.signin__form a:hover {
+  color: #b3b3b3;
+}
+.signin__form-bottom {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.signin__form-bottom a {
+  margin-left: 10px;
+  color: white;
+}
+@media screen and (max-width: 450px) {
+  .signin__form-wrapper {
+    width: 90%;
+  }
+}

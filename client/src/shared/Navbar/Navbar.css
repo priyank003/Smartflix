@@ -29,10 +29,12 @@
   justify-content: space-between;
 }
 .app__navbar-auth {
+  cursor: pointer;
   background-color: var(--color-red);
   padding: 8px 20px;
   border-radius: 4px;
   margin-left: 20px;
+  color: white;
 }
 .app__navbar-right {
   flex: 1;
