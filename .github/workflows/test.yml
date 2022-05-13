@@ -12,5 +12,7 @@ jobs:
         run: cd client && npm i
       - name: build frontend
         run: cd client && npm run build
+        env:
+          CI: ""
       - name: test yml
         run: echo "Test success"
