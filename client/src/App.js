@@ -1,7 +1,7 @@
 import "./App.css";
 import Home from "./screens/Home/Home";
 import Navbar from "./shared/Navbar/Navbar";
-import Signin from "./screens/Sign/Signin";
+import Signin from "./screens/Signin/Signin";
 import { Routes, Route, Link } from "react-router-dom";
 
 function App() {

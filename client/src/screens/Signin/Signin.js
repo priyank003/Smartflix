@@ -2,11 +2,24 @@ import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import { Form, Button } from "react-bootstrap";
 import useInput from "../../hooks/use-input";
-
+import { loggedInActions } from "../../store/loginAuth-slice";
+import { userInfoActions } from "../../store/userInfo-slice";
+import { useDispatch, useSelector } from "react-redux";
 import "./Signin.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signin() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {
+    value: enteredName,
+    isValid: enteredNameIsValid,
+    hasEror: nameInputHasEror,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    // reset: resetEmailInput,
+  } = useInput((value) => value.trim() !== "");
+
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
@@ -35,26 +48,33 @@ export default function Signin() {
     user_password: "",
   });
 
-  const BASE_URL = "";
+  const BASE_URL = "http://localhost:8000/auth/signin";
 
-  const submitFormHandler = (userData) => {
-    console.log(post);
-    // fetch(BASE_URL, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     user: userData,
-    //   }),
-    // });
+  const submitFormHandler = async (userData) => {
+    await fetch(BASE_URL, {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(navigate("/"))
+      .then(dispatch(loggedInActions.setLoginState(true)));
+    dispatch(
+      userInfoActions.setUserInfoState({
+        email: userData.email,
+        name: userData.name,
+      })
+    );
   };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    setPost({
-      user_email: enteredEmail,
-      user_password: enteredPassword,
+    submitFormHandler({
+      name: enteredName,
+      email: enteredEmail,
+      password: enteredPassword,
     });
-
-    submitFormHandler(post);
   };
 
   return (
@@ -66,7 +86,19 @@ export default function Signin() {
 
           <Form.Floating className="mb-3">
             <Form.Control
-              id="floatingInputCustom"
+              id="floatingInputNameCustom"
+              type="text"
+              placeholder="username"
+              onChange={nameChangeHandler}
+              value={enteredName}
+              onBlur={nameBlurHandler}
+            />
+            <label htmlFor="floatingInputCustom">username</label>
+          </Form.Floating>
+
+          <Form.Floating className="mb-3">
+            <Form.Control
+              id="floatingInputEmailCustom"
               type="email"
               placeholder="name@example.com"
               onChange={emailChangeHandler}

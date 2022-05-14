@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import brandLogo from "../../assets/navbar/logo.png";
 import { Container, Dropdown } from "react-bootstrap";
 import NavbarLink from "./components/NavbarLink";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { loggedInActions } from "../../store/loginAuth-slice";
+import { userInfoActions } from "../../store/userInfo-slice";
 
 import HomeIcon from "@mui/icons-material/Home";
 import TheatersIcon from "@mui/icons-material/Theaters";
@@ -43,11 +47,47 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isScrolled, setIsScrolled] = useState(false);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
+  };
+
+  const loggedInstate = useSelector((state) => {
+    return state.auth.isLoggedIn;
+  });
+
+  const userInfo = useSelector((state) => {
+    return {
+      email: state.userInfo.email,
+      name: state.userInfo.name,
+    };
+  });
+
+  const BASE_URL = "http://localhost:8000/auth/logout";
+
+  const logOutHandler = async () => {
+    await fetch(BASE_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        email: userInfo.email,
+        isLoggedIn: false,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(navigate("/"))
+      .then(dispatch(loggedInActions.setLoginState(false)));
+    dispatch(
+      userInfoActions.setUserInfoState({
+        email: "",
+        name: "",
+      })
+    );
   };
 
   return (
@@ -87,10 +127,21 @@ export default function Navbar() {
           <div className="app__navbar-search">
             <SearchIcon />
           </div>
-          <Link to="/signin">
-            {" "}
-            <div className="app__navbar-auth">Login</div>
-          </Link>
+          {loggedInstate ? (
+            <div className="app__navbar-user-login-info">
+              {" "}
+              <p className="app__navbar-username"> {userInfo.name}</p>
+              <Link to="/" onClick={logOutHandler}>
+                {" "}
+                <div className="app__navbar-auth">Logout</div>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/signin">
+              {" "}
+              <div className="app__navbar-auth">Login</div>
+            </Link>
+          )}
         </div>
       </nav>
     </div>
