@@ -11,34 +11,50 @@ export default function Home() {
   const [top_rated, setTop_rated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
 
-  const getData = (api, setState) => {
-    try {
-      fetch(api)
-        .then((response) => response.json())
-        .then((data) => {
-          setState(data.results);
-        });
-    } catch (err) {
-      console.log(err);
-    }
+  // const getData = (api, setState) => {
+  //   try {
+  //     fetch(api)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setState(data.results);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  const getRegressionData = async (api, setData) => {
+    const recRes = await fetch(api);
+    const recData = await recRes.json();
+
+    recData.map(async (movie) => {
+      const imgRes = await fetch(
+        `https://api.themoviedb.org/3/find/${movie.imdbId}?api_key=ab414ecaafc012ffce4c584b0924aa87&language=en-US&external_source=imdb_id`
+      );
+
+      const imgResData = await imgRes.json();
+      movie["poster_path"] = imgResData.movie_results[0].poster_path;
+    });
+
+    setData(recData);
   };
 
+  let userId = 10;
   useEffect(() => {
-    getData(
-      "https://api.themoviedb.org/3/trending/all/day?api_key=ab414ecaafc012ffce4c584b0924aa87",
+    getRegressionData(
+      `http://localhost:9000/${userId}/regression`,
       settrendingMovieData
     );
-
-    getData(
-      "https://api.themoviedb.org/3/tv/popular?api_key=ab414ecaafc012ffce4c584b0924aa87&language=en-US",
+    getRegressionData(
+      `http://localhost:9000/${userId}/contentbased`,
       setlatestShowData
     );
-    getData(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=ab414ecaafc012ffce4c584b0924aa87&language=en-US&page=1",
+    getRegressionData(
+      `http://localhost:9000/${userId}/collab-user`,
       setTop_rated
     );
-    getData(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=ab414ecaafc012ffce4c584b0924aa87&language=en-US&page=1",
+    getRegressionData(
+      `http://localhost:9000/${userId}/collab-item`,
       setUpcoming
     );
   }, []);
@@ -51,10 +67,30 @@ export default function Home() {
       <div className="home__main">
         <div className="home__main-overlay"></div>
         <div className="home__catalogues">
-          <RowItemSlider header="Trending Movies" data={trendingMovieData} />
-          <RowItemSlider header="Latest Tv Shows" data={latestShowData} />
-          <RowItemSlider header="Top Rated" data={top_rated} />
-          <RowItemSlider header="Upcoming Movies" data={upcoming} />
+          {trendingMovieData ? (
+            <RowItemSlider header="Regression Based" data={trendingMovieData} />
+          ) : (
+            <p>Loading regression Data</p>
+          )}
+
+          {latestShowData ? (
+            <RowItemSlider
+              header="Content based of Batman begins"
+              data={latestShowData}
+            />
+          ) : (
+            <p>Loading content based data</p>
+          )}
+          {top_rated ? (
+            <RowItemSlider header="User Collabrative" data={top_rated} />
+          ) : (
+            <p>Loading user Collabrative based data</p>
+          )}
+          {upcoming ? (
+            <RowItemSlider header="Item Collabrative" data={upcoming} />
+          ) : (
+            <p>Loading item collaborative based data</p>
+          )}
         </div>
       </div>
     </div>

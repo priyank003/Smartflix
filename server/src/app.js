@@ -1,7 +1,8 @@
 const express = require("express");
+
 const app = express();
 const cors = require("cors");
-
+const link = require("./models/links.mongo");
 const userRouter = require("./routes/user/user.router");
 
 app.use(

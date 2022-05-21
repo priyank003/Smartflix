@@ -22,8 +22,6 @@ export default function RowItemSlider(props) {
       setSlideNumber(slideNumber + 1);
       carouselRef.current.style.transform = `translate(${-265 + distance}px)`;
     }
-
-    console.log(distance);
   };
   return (
     <div className="rowitemslider__container" style={props.style}>

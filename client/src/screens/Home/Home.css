@@ -21,6 +21,9 @@
   width: 100%;
   padding: 0 50px;
 }
+.home__catalogues p {
+  color: white !important;
+}
 @media screen and (max-width: 768px) {
   .home__catalogues {
     padding: 0 20px;

@@ -1,7 +1,17 @@
 const user = require("./user.mongo");
 const { v4: uuidv4 } = require("uuid");
 
+let userId = 0;
+
 async function addNewUser(data) {
+  try {
+    if (await user.exists({ id: userId })) {
+      userId++;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
   try {
     await user.create([
       {
@@ -9,7 +19,7 @@ async function addNewUser(data) {
         email: data.email,
         password: data.password,
         isLoggedIn: true,
-        id: uuidv4(),
+        id: userId,
       },
     ]);
   } catch (error) {
