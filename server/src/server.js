@@ -1,16 +1,16 @@
 const http = require("http");
 const app = require("./app");
-const { loadMovieLinksDataFile } = require("./models/links.model");
 
+const { loadUserData } = require("./models/user/user.model");
 const { mongoConnect } = require("./services/mongo");
-
+const USER_MOCK_DATA = require("../data/user_mock_data.json");
 const PORT = process.env.PORT || 8000;
 
 const server = http.createServer(app);
 
 async function startServer() {
   await mongoConnect();
-  // await loadMovieLinksDataFile();
+  await loadUserData(USER_MOCK_DATA);
 
   server.listen(PORT, () => {
     console.log(`LISTENING ON PORT ${PORT}`);

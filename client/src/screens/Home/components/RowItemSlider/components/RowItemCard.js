@@ -1,5 +1,5 @@
 import React from "react";
-import movieImage from "../../../../../assets/Home/catalogue/Rectangle 39.png";
+
 import "./RowItemCard.css";
 
 export default function RowItemCard({ img, name }) {

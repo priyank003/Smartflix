@@ -31,7 +31,7 @@ export default function Landing() {
                 placeholder="Enter mobie number"
               ></input>
             </div>
-            <a href="#" className="flex__center nav__submit-link ">
+            <a href="/subscribe" className="flex__center nav__submit-link ">
               Subscribe
             </a>
           </div>

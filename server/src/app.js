@@ -2,8 +2,9 @@ const express = require("express");
 
 const app = express();
 const cors = require("cors");
-const link = require("./models/links.mongo");
+
 const userRouter = require("./routes/user/user.router");
+const recRouter = require("./routes/recommendation/rec.router");
 
 app.use(
   cors({
@@ -14,6 +15,7 @@ app.use(
 app.use(express.json());
 
 app.use("/auth", userRouter);
+app.use("/recommendation", recRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello world");

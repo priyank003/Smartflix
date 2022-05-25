@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import brandLogo from "../../assets/navbar/logo.png";
-import { Container, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import NavbarLink from "./components/NavbarLink";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { loggedInActions } from "../../store/loginAuth-slice";
@@ -10,12 +10,12 @@ import { userInfoActions } from "../../store/userInfo-slice";
 
 import HomeIcon from "@mui/icons-material/Home";
 import TheatersIcon from "@mui/icons-material/Theaters";
-import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
+// import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import MusicVideoIcon from "@mui/icons-material/MusicVideo";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import AirplayIcon from "@mui/icons-material/Airplay";
 import SearchIcon from "@mui/icons-material/Search";
-
+import { v4 as uuidv4 } from "uuid";
 import "./Navbar.css";
 import TheaterComedy from "@mui/icons-material/TheaterComedy";
 
@@ -109,7 +109,7 @@ export default function Navbar() {
               <div className="app__navbar-links col-12 col-xl-8">
                 {NAV_LINKS.map((link) => {
                   return (
-                    <Dropdown.Item href="#">
+                    <Dropdown.Item href="#" key={uuidv4()}>
                       <NavbarLink Icon={link.icon} name={link.name} />
                     </Dropdown.Item>
                   );
@@ -119,7 +119,9 @@ export default function Navbar() {
           </Dropdown>
           <div className="app__navbar-links col-12 col-xl-8">
             {NAV_LINKS.map((link) => {
-              return <NavbarLink Icon={link.icon} name={link.name} />;
+              return (
+                <NavbarLink key={uuidv4()} Icon={link.icon} name={link.name} />
+              );
             })}
           </div>
         </div>

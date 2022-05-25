@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { TextField } from "@mui/material";
+import React from "react";
+// import { TextField } from "@mui/material";
 import { Form, Button } from "react-bootstrap";
 import useInput from "../../hooks/use-input";
 import { loggedInActions } from "../../store/loginAuth-slice";
 import { userInfoActions } from "../../store/userInfo-slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./Signin.css";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -13,8 +13,8 @@ export default function Signin() {
   const dispatch = useDispatch();
   const {
     value: enteredName,
-    isValid: enteredNameIsValid,
-    hasEror: nameInputHasEror,
+    // isValid: enteredNameIsValid,
+    // hasEror: nameInputHasEror,
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
     // reset: resetEmailInput,
@@ -23,7 +23,7 @@ export default function Signin() {
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,
-    hasEror: emailInputHasEror,
+    // hasEror: emailInputHasEror,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     // reset: resetEmailInput,
@@ -31,8 +31,8 @@ export default function Signin() {
 
   const {
     value: enteredPassword, // eslint-disable-next-line
-    isValid: enteredPasswordIsValid, // eslint-disable-next-line
-    hasEror: passwordInputHasEror,
+    // isValid: enteredPasswordIsValid, // eslint-disable-next-line
+    // hasEror: passwordInputHasEror,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler, // eslint-disable-next-line
     reset: resetPasswordInput,
@@ -43,12 +43,13 @@ export default function Signin() {
     // eslint-disable-next-line
     formIsValid = true;
   }
-  const [post, setPost] = useState({
-    user_email: "",
-    user_password: "",
-  });
+  // const [post, setPost] = useState({
+  //   user_email: "",
+  //   user_password: "",
+  // });
 
   const BASE_URL = "http://localhost:8000/auth/signin";
+  // const BASE_URL_REC_ENG = "http://localhost:9000/prep";
 
   const submitFormHandler = async (userData) => {
     await fetch(BASE_URL, {
@@ -58,14 +59,26 @@ export default function Signin() {
         "Content-Type": "application/json",
       },
     })
-      .then(navigate("/"))
-      .then(dispatch(loggedInActions.setLoginState(true)));
-    dispatch(
-      userInfoActions.setUserInfoState({
-        email: userData.email,
-        name: userData.name,
-      })
-    );
+      .then((res) => console.log(res))
+      .then(async () => {
+        const userIdRes = await fetch(`${BASE_URL}/user/rec-prep`, {
+          method: "POST",
+          body: JSON.stringify(userData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const userIdResData = await userIdRes.json();
+        navigate("/");
+        dispatch(loggedInActions.setLoginState(true));
+        dispatch(
+          userInfoActions.setUserInfoState({
+            email: userData.email,
+            name: userData.name,
+            id: userIdResData.userId,
+          })
+        );
+      });
   };
 
   const formSubmitHandler = (e) => {
