@@ -3,11 +3,13 @@ import RowItemCard from "./components/RowItemCard";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { getImageData } from "../../../../Api/Api";
 import { v4 as uuidv4 } from "uuid";
 import "./RowItemSlider.css";
 
 export default function RowItemSlider(props) {
-  // const [movieData, setMovieData] = useState(props.data);
+  // const [imgSrc, setImgSrc] = useState();
+  const [movieData, setMovieData] = useState(props.data);
   const [iseMoved, setIsMoved] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
 
@@ -27,6 +29,21 @@ export default function RowItemSlider(props) {
     }
   };
 
+  // useEffect(() => {
+  //   const fetchImg = async () => {
+  //     movieData.map(async (movie) => {
+  //       const movieResData = await getImageData(movie.imdbId);
+  //       movie.poster_path = movieResData.movie_results[0].poster_path;
+  //     });
+
+  //     // if (movieData.movie_results.length > 0)
+  //     //   setImgSrc((prev) => (prev = movieData.movie_results[0].poster_path));
+  //   };
+
+  //   fetchImg();
+  // }, []);
+
+  // console.log(movieData);
   return (
     <div className="rowitemslider__container" style={props.style}>
       <div className="rowitemslider__header text__subtitle">{props.header}</div>
@@ -43,26 +60,29 @@ export default function RowItemSlider(props) {
             highlightColor="#222121"
           >
             {props.data.map((movie) => {
-              return movie.poster_path ? (
+              // return movie.poster_path ? (
+              return (
                 <RowItemCard
                   key={uuidv4()}
-                  img={String(movie.poster_path)}
-                  name={movie.original_title}
+                  id={movie.imdbId || movie.imdb_id}
+                  name={movie.title}
+                  img={movie.poster_path}
                 />
-              ) : (
-                [Array(5)].map(() => (
-                  <Skeleton
-                    key={uuidv4()}
-                    duration={0.7}
-                    width={250}
-                    style={{
-                      marginRight: "15px",
-                      minHeight: "300px",
-                      height: "100%",
-                    }}
-                  />
-                ))
               );
+              // ) : (
+              //   [Array(5)].map(() => (
+              //     <Skeleton
+              //       key={uuidv4()}
+              //       duration={0.7}
+              //       width={250}
+              //       style={{
+              //         marginRight: "15px",
+              //         minHeight: "300px",
+              //         height: "100%",
+              //       }}
+              //     />
+              //   ))
+              // );
             })}
             {/* {props.data.length
               ? props.data.map((movie) => {

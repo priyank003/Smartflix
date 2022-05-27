@@ -33,15 +33,15 @@ export default function Home() {
     const recRes = await fetch(api);
     const recData = await recRes.json();
 
-    await recData.map(async (movie) => {
-      const movieData = await getImageData(movie.imdbId);
+    // await recData.map(async (movie) => {
+    //   const movieData = await getImageData(movie.imdbId);
 
-      try {
-        movie["poster_path"] = movieData.movie_results[0].poster_path;
-      } catch (err) {
-        console.log(err);
-      }
-    });
+    //   try {
+    //     movie["poster_path"] = movieData.movie_results[0].poster_path;
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // });
 
     setData(recData);
   };

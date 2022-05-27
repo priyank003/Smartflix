@@ -184,11 +184,14 @@ export default function Navbar() {
               )}
             </div>
 
-            <div
-              className="app__navbar-search-icon flex__center "
-              onClick={submitSearchHandler}
-            >
+            <div className="app__navbar-search-icon flex__center ">
+              {/* <Link
+                onClick={searchMovieHandler}
+                to={`/search/${searchInputRef.current.value}`}
+                className="results__link flex__center"
+              > */}
               <SearchIcon />
+              {/* </Link>{" "} */}
             </div>
           </div>
           {loggedInstate ? (

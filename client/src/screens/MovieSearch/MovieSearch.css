@@ -1,10 +1,28 @@
 .app__moviesearch {
   min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .app__moviesearch-header {
+  justify-self: flex-start;
   padding-bottom: 10px;
   border-bottom: 1px solid rgb(75, 72, 72);
 }
 .app__moviesearch-header h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
+}
+.app__moviesearch-container {
+  margin-top: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.app__moviesearch-header {
+  justify-self: flex-start;
+}
+.app__moviesearch-content {
+  width: 100%;
 }

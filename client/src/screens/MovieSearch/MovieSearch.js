@@ -64,11 +64,14 @@ export default function MovieSearch() {
   return (
     <div className="app__moviesearch flex__center">
       <Container>
-        <div className="app__moviesearch-header">
-          <h1>Search results for {movie} :</h1>
-        </div>
-        <div className="app__moviesearch-content">
-          {searchResults.length > 0 && <RowItemSlider data={searchResults} />}
+        <div className="app__moviesearch-container flex__center">
+          <div className="app__moviesearch-header">
+            <h1>Search results for {movie} :</h1>
+          </div>
+
+          <div className="app__moviesearch-content">
+            {searchResults.length > 0 && <RowItemSlider data={searchResults} />}
+          </div>
         </div>
       </Container>
     </div>
