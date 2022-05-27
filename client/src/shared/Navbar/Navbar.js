@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import brandLogo from "../../assets/navbar/logo.png";
 import { Dropdown } from "react-bootstrap";
 import NavbarLink from "./components/NavbarLink";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Router } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { loggedInActions } from "../../store/loginAuth-slice";
 import { userInfoActions } from "../../store/userInfo-slice";
+import { searchInfoActions } from "../../store/movieSearch-slice";
+import SearchSuggestionCard from "./components/SearchSuggestionCard";
 
 import HomeIcon from "@mui/icons-material/Home";
 import TheatersIcon from "@mui/icons-material/Theaters";
@@ -32,14 +34,14 @@ const NAV_LINKS = [
     icon: <TheaterComedy />,
     name: "Drama",
   },
-  {
-    icon: <MusicVideoIcon />,
-    name: "Music Video",
-  },
-  {
-    icon: <LiveTvIcon />,
-    name: "Live Show",
-  },
+  // {
+  //   icon: <MusicVideoIcon />,
+  //   name: "Music Video",
+  // },
+  // {
+  //   icon: <LiveTvIcon />,
+  //   name: "Live Show",
+  // },
   {
     icon: <AirplayIcon />,
     name: "Comedies",
@@ -50,6 +52,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -90,6 +93,35 @@ export default function Navbar() {
     );
   };
 
+  const searchInputRef = useRef();
+
+  const submitSearchHandler = async () => {
+    setActive(true);
+    const sugggestionRes = await fetch("http://localhost:8000/movie/search", {
+      method: "POST",
+      body: JSON.stringify({
+        name: searchInputRef.current.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const sugggestionResData = await sugggestionRes.json();
+
+    setTimeout(setSearchResults(sugggestionResData.movieResults), 1000);
+  };
+
+  const [active, setActive] = useState(false);
+
+  const blurHandler = () => {
+    setActive((blur) => !blur);
+  };
+
+  const searchMovieHandler = () => {
+    dispatch.searchInfoActions.setSimilarSearch(searchInputRef.current.value);
+  };
+
   return (
     <div
       className="app__navbar-container flex__center"
@@ -97,9 +129,11 @@ export default function Navbar() {
     >
       <nav className="app__navbar">
         <div className="app__navbar-left row-xl ">
-          <div className="app__navbar-brand ">
-            <img src={brandLogo} alt="netflix" />
-          </div>
+          <Link to="/">
+            <div className="app__navbar-brand ">
+              <img src={brandLogo} alt="netflix" />
+            </div>
+          </Link>
           <Dropdown className="mx-2 nav__dropdown">
             <Dropdown.Toggle id="dropdown-autoclose-true">
               Browse
@@ -117,7 +151,7 @@ export default function Navbar() {
               </div>
             </Dropdown.Menu>
           </Dropdown>
-          <div className="app__navbar-links col-12 col-xl-8">
+          <div className="app__navbar-links col-12 col-xl-6">
             {NAV_LINKS.map((link) => {
               return (
                 <NavbarLink key={uuidv4()} Icon={link.icon} name={link.name} />
@@ -127,7 +161,35 @@ export default function Navbar() {
         </div>
         <div className="app__navbar-right">
           <div className="app__navbar-search">
-            <SearchIcon />
+            <div className="app__navbar-search-field">
+              <input
+                placeholder="search movies"
+                ref={searchInputRef}
+                onKeyUp={submitSearchHandler}
+                onClick={blurHandler}
+              />
+              {active && searchInputRef.current.value && (
+                <div className="app__navbar-search-suggestions">
+                  {searchResults.map((data) => {
+                    return <SearchSuggestionCard data={data} key={uuidv4()} />;
+                  })}
+                  <Link
+                    onClick={searchMovieHandler}
+                    to={`/search/${searchInputRef.current.value}`}
+                    className="results__link"
+                  >
+                    View more results
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div
+              className="app__navbar-search-icon flex__center "
+              onClick={submitSearchHandler}
+            >
+              <SearchIcon />
+            </div>
           </div>
           {loggedInstate ? (
             <div className="app__navbar-user-login-info">

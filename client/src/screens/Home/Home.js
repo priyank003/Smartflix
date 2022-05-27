@@ -3,6 +3,7 @@ import Landing from "./components/Landing/Landing";
 import RowItemSlider from "./components/RowItemSlider/RowItemSlider";
 import { useSelector } from "react-redux";
 import { SkeletonTheme } from "react-loading-skeleton";
+import { getImageData } from "../../Api/Api";
 // import { v4 as uuidv4 } from "uuid";
 import "./Home.css";
 
@@ -33,19 +34,16 @@ export default function Home() {
     const recData = await recRes.json();
 
     await recData.map(async (movie) => {
-      const imgRes = await fetch(
-        `https://api.themoviedb.org/3/find/${movie.imdbId}?api_key=ab414ecaafc012ffce4c584b0924aa87&language=en-US&external_source=imdb_id`
-      );
-      const imgResData = await imgRes.json();
+      const movieData = await getImageData(movie.imdbId);
 
       try {
-        movie["poster_path"] = imgResData.movie_results[0].poster_path;
+        movie["poster_path"] = movieData.movie_results[0].poster_path;
       } catch (err) {
         console.log(err);
       }
     });
 
-    return setData(recData);
+    setData(recData);
   };
 
   const userId = useSelector((state) => {

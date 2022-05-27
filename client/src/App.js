@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./screens/Home/Home";
 import Navbar from "./shared/Navbar/Navbar";
 import Signin from "./screens/Signin/Signin";
+import MovieSearch from "./screens/MovieSearch/MovieSearch";
 import { Routes, Route } from "react-router-dom";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/search/:movie" element={<MovieSearch />} />
       </Routes>
     </div>
   );

@@ -4,6 +4,7 @@ const BASE_URL = "http://localhost:9000";
 
 const {
   // getRecommendedMovies,
+
   getContentMovies,
   getRegressionMovies,
   getUserCollabMovies,
@@ -17,6 +18,8 @@ const httpRecommendWithRegression = async (req, res) => {
   try {
     // await axios.get(`${BASE_URL}/${userId}/regression`);
     const data = await getRegressionMovies(userId);
+
+    // await getMovieImage(data[0].regressionBased);
 
     return res.status(200).json(data[0].regressionBased);
   } catch (err) {

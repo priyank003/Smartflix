@@ -46,7 +46,7 @@ export default function RowItemSlider(props) {
               return movie.poster_path ? (
                 <RowItemCard
                   key={uuidv4()}
-                  img={movie.poster_path}
+                  img={String(movie.poster_path)}
                   name={movie.original_title}
                 />
               ) : (

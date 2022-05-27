@@ -13,6 +13,10 @@ const movieDataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  poster: {
+    type: String,
+    required: true,
+  },
 });
 
 const regressionRecommenderSchema = new mongoose.Schema({
@@ -23,9 +27,6 @@ const regressionRecommenderSchema = new mongoose.Schema({
   },
 
   regressionBased: [movieDataSchema],
-  // contentBased: [movieDataSchema],
-  // collabUserBased: [movieDataSchema],
-  // collabItemBased: [movieDataSchema],
 });
 
 module.exports = mongoose.model("regressionRec", regressionRecommenderSchema);

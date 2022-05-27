@@ -554,6 +554,7 @@ export function sliceAndDice(
         title: MOVIES_BY_ID[mr.movieId].title,
         score: mr.score,
         imdbId: MOVIES_BY_ID[mr.movieId].imdbId,
+        // poster: MOVIES_BY_ID[mr.movieId].poster,
       }))
     : recommendations.map((mr) => ({
         movie: MOVIES_BY_ID[mr.movieId],
@@ -589,5 +590,5 @@ export function softEval(string, escape) {
 
 app.listen(9000, async () => {
   await mongoConnect();
-  console.log("LISTENING ON PORT 9000");
+  console.log("RECCOMMENDATION ENGINE LISTENING ON PORT 9000");
 });

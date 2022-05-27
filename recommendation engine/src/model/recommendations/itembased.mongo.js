@@ -13,6 +13,10 @@ const movieDataSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  poster: {
+    type: String,
+    required: true,
+  },
 });
 
 const collabItemRecommenderSchema = new mongoose.Schema({

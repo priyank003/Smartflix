@@ -13,7 +13,7 @@ async function startServer() {
   await loadUserData(USER_MOCK_DATA);
 
   server.listen(PORT, () => {
-    console.log(`LISTENING ON PORT ${PORT}`);
+    console.log(`SERVER LISTENING ON PORT ${PORT}`);
   });
 }
 

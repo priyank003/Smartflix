@@ -1,0 +1,10 @@
+.app__moviesearch {
+  min-height: 100vh;
+}
+.app__moviesearch-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(75, 72, 72);
+}
+.app__moviesearch-header h1 {
+  font-size: 2rem;
+}
