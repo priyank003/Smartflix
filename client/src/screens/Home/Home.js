@@ -4,7 +4,6 @@ import RowItemSlider from "./components/RowItemSlider/RowItemSlider";
 import { useSelector } from "react-redux";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { getImageData } from "../../Api/Api";
-// import { v4 as uuidv4 } from "uuid";
 import "./Home.css";
 
 export default function Home() {
@@ -12,37 +11,10 @@ export default function Home() {
   const [contentData, setContentData] = useState([]);
   const [userCollab, setUserCollab] = useState([]);
   const [itemCollab, setItemCollab] = useState([]);
-  // console.log(regressionData, "regression");
-  // console.log(contentData, "content");
-  // console.log(userCollab, "usr collab");
-  // console.log(itemCollab, "item collab");
-
-  // const getData = (api, setState) => {
-  //   try {
-  //     fetch(api)
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setState(data.results);
-  //       });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const getRecommendationData = async (api, setData) => {
     const recRes = await fetch(api);
     const recData = await recRes.json();
-
-    // await recData.map(async (movie) => {
-    //   const movieData = await getImageData(movie.imdbId);
-
-    //   try {
-    //     movie["poster_path"] = movieData.movie_results[0].poster_path;
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // });
-
     setData(recData);
   };
 
@@ -147,6 +119,7 @@ export default function Home() {
             {regressionData.length > 0 && (
               <RowItemSlider header="Regression Based" data={regressionData} />
             )}
+
             {contentData.length > 0 && (
               <RowItemSlider
                 header="Content based on Pirates of carebian"

@@ -6,14 +6,16 @@
   "scripts": {
     "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
-    "install": "npm run install-server && npm run install-client",
+    "install-rec-engine": "npm install --prefix rec-engine",
+    "install": "npm run install-server && npm run install-client && npm run install-rec-engine",
     "server": " npm run watch --prefix server",
-    "client": "npm start --prefix client",
-    "watch": " npm run server & npm run client",
-    "deploy": "npm run build --prefix client && npm start --prefix server",
-    "test": "npm test --prefix server && npm test --prefix client"
+    "client": " npm start --prefix client",
+    "rec-engine": "npm start --prefix rec-engine",
+    "watch": " npm run server & npm run client & npm run rec-engine",
+    "deploy": "npm run build --prefix client && npm start --prefix server && npm start --prefix rec-engine",
+    "test": "npm test --prefix server && npm test --prefix client && npm test --prefix"
   },
   "keywords": [],
-  "author": "",
+  "author": "priyank patil",
   "license": "ISC"
 }
