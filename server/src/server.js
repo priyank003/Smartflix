@@ -1,6 +1,8 @@
 const http = require("http");
-const app = require("./app");
 
+require("dotenv").config();
+
+const app = require("./app");
 const { loadUserData } = require("./models/user/user.model");
 const { mongoConnect } = require("./services/mongo");
 const USER_MOCK_DATA = require("../data/user_mock_data.json");

@@ -441,7 +441,9 @@ export function softEval(string, escape) {
   }
 }
 
-app.listen(9000, async () => {
+const PORT = process.env.PORT || 9000;
+
+app.listen(PORT, async () => {
   await mongoConnect();
   console.log("RECCOMMENDATION ENGINE LISTENING ON PORT 9000");
 });
