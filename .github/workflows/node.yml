@@ -7,20 +7,24 @@ on:
 
 jobs:
   build-app:
+    env:
+      CI: ""
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Nodejs verrsion 16
+      - name: Use Nodejs verrsion ${{matrix.node-version}}
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: ${{matrix.node-version}}
       - run: npm install
       - run: npm run build --prefix client
         # - name: frontend setup node modules
         #   run: cd client && npm i
         # - name: build frontend
         #   run: cd client && npm run build
-        env:
-          CI: ""
+
       # - name: test yml
       #   run: echo "Test success"
