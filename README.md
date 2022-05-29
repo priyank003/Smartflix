@@ -31,13 +31,13 @@ Demonstrate through your app the different kinds of algorithms that a web-stream
 
   ![Screenshot 2022-05-29 191527](https://user-images.githubusercontent.com/79754424/170872741-a2acbd7e-9ad1-4b7e-9d15-2e8e1cbb6eff.png)
   
-  ## 3.Movie Recommendations Based on Content Based "Pirates of the Caribbean: The Curse of the Black Pearl"
+  ## 3. Movie Recommendations Based on Content Based "Pirates of the Caribbean: The Curse of the Black Pearl"
   
   It uses attributes such as genre, director, description, actors, etc. for movies, to make suggestions for the users. The intuition behind this sort of recommendation system is that if a user liked a particular movie or show, he/she might like a movie or a show similar to it.
   
 ![Screenshot 2022-05-29 191433](https://user-images.githubusercontent.com/79754424/170872833-f96dccbf-1f58-43aa-a82c-cf1a4e142b1f.png)
 
-  ## 4.Movie Recommendations Based on user and item based collabrative algorithm
+  ## 4. Movie Recommendations Based on user and item based collabrative algorithm
   
   It matches users with same interests and gives recommendations based on their likes. Eg: There are two users Sam and Robin, Sam likes movies A,B,C,D and Robin likes movies C,D. Since movies C,D are common to both Sam and Robin, thus movies A and B would be recommended to Robin. Collaborative filtering does not make use of metadata to give recommendations.
   
@@ -46,15 +46,15 @@ Demonstrate through your app the different kinds of algorithms that a web-stream
 ![Screenshot 2022-05-29 191613](https://user-images.githubusercontent.com/79754424/170872925-77b1a865-0ce2-4c25-bdf1-7a915b5ec39c.png)
 
 
-  ## 5.Content Based recommendations from the user search input
+  ## 5. Content Based recommendations from the user search input
   
   ![Screenshot 2022-05-29 191946](https://user-images.githubusercontent.com/79754424/170873011-73050cfa-fdff-406d-925c-3303cccd3577.png)
   
-  ## 6.Search movies with keywords autocompletion
+  ## 6. Search movies with keywords autocompletion
   
   ![Screenshot 2022-05-29 191833](https://user-images.githubusercontent.com/79754424/170872960-66a8a8a2-f1f1-44e5-b8de-f4dd94e9d4b1.png)
 
-  ## 7.Movie comments and reviews feature 
+  ## 7. Movie comments and reviews feature 
   
   ![Screenshot 2022-05-29 221507](https://user-images.githubusercontent.com/79754424/170881596-ace56c1c-6dcd-40dd-87a1-ef40993c9986.png)
 
@@ -62,7 +62,7 @@ Demonstrate through your app the different kinds of algorithms that a web-stream
 
 <br/>
 
-## Instructions
+## Instructions for running this project
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
