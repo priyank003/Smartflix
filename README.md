@@ -1,8 +1,8 @@
-Live demo https://smartflix-app.vercel.app/
+<!-- Live demo https://smartflix-app.vercel.app/ -->
 
-<p align="center">
+
 # Smartflix - Video Streaming Web App
-</p>
+
 <p align="center">
    <img src="https://user-images.githubusercontent.com/79754424/170882180-f0ab627b-4032-4e30-839a-6d93d5a36dff.png" alt="Smartflix logo"/>
 </p>
