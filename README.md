@@ -3,8 +3,9 @@ Live demo https://smartflix-app.vercel.app/
 
 # Smartflix - Video Streaming Web App
 
+<p align="center">
 ![Smartflix logo](https://user-images.githubusercontent.com/79754424/170882180-f0ab627b-4032-4e30-839a-6d93d5a36dff.png)
-
+</p>
 Problem Statement:
 
 Demonstrate through your app the different kinds of algorithms that a web-streaming app (like Netflix) or an audio-streaming app (like Spotify) may use for their Recommendation Engine.
