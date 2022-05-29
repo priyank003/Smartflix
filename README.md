@@ -75,6 +75,8 @@ Demonstrate through your app the different kinds of algorithms that a web-stream
   4. cd ./server & npm install & npm run watch  <br/>
   <br/>
   5. The App is now running at `http://localhost:3000/`, 
+  <br/>
   6. Server Runnin at `http://localhost:8000/`
-  7. Recommendation engine running at `http://localhost:9000/`
+  <br/>
+  8. Recommendation engine running at `http://localhost:9000/`
 
