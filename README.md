@@ -7,7 +7,6 @@ Problem Statement:
 
 Demonstrate through your app the different kinds of algorithms that a web-streaming app (like Netflix) or an audio-streaming app (like Spotify) may use for their Recommendation Engine.
 
-![image](https://user-images.githubusercontent.com/79754424/170881676-d2bbbe59-c2e1-4244-b9df-3b3839953260.png)
 
 
 <br/>
