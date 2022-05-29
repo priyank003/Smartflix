@@ -43,6 +43,10 @@ A web streaming app with smart movie recommendation system.
   
   ![Screenshot 2022-05-29 191946](https://user-images.githubusercontent.com/79754424/170873011-73050cfa-fdff-406d-925c-3303cccd3577.png)
 
+  7.Movie comments and reviews feature 
+  
+  ![Screenshot 2022-05-29 221507](https://user-images.githubusercontent.com/79754424/170881596-ace56c1c-6dcd-40dd-87a1-ef40993c9986.png)
+
  
 
 <br/>
